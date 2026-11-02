@@ -1,0 +1,32 @@
+
+name: C++ Continuous Integration
+
+on:
+  push:
+    branches:
+      - main
+      - release
+      - development
+      - 'feature/**'
+      - 'hotfix/**'
+
+  pull_request:
+    branches:
+      - development
+      - release
+      - main
+
+jobs:
+  build:
+    name: Build C++ Application
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v2
+
+      - name: Build application
+        run: msbuild BankManagementSystem.sln /m /p:Configuration=Release /p:Platform=x64

@@ -4,6 +4,7 @@
 *.suo
 *.VC.db
 *.VC.VC.opendb
+*.vcxproj.user
 
 # Build outputs
 Debug/
